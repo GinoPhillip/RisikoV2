@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Risiko Battle</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="https://unpkg.com/photonkit@0.1.2/dist/css/photon.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="window">
+
+  <!-- Top banner image (replace banner.png) -->
+  <header class="toolbar-header banner-wrap">
+    <img src="banner.png" alt="Banner" class="banner">
+  </header>
+
+  <div class="window-content">
+    <div class="pane padded">
+
+      <!-- ATTACKER -->
+      <div class="slider-row">
+        <input id="attackerNumber" type="number" min="1" value="3" class="num-input attacker">
+        <input id="attackerSlider" type="range" min="1" max="30" value="3" class="slider">
+      </div>
+
+      <!-- DEFENDER -->
+      <div class="slider-row">
+        <input id="defenderNumber" type="number" min="1" value="3" class="num-input defender">
+        <input id="defenderSlider" type="range" min="1" max="30" value="3" class="slider">
+      </div>
+
+      <!-- CALCULATE -->
+      <button id="calculateBtn" type="button" class="btn dice-btn">🎲🎲🎲</button>
+
+      <!-- GRAPH -->
+      <section class="graph-box">
+        <canvas id="mpoChart" height="220"></canvas>
+      </section>
+
+      <!-- RESULTS -->
+      <section id="results" class="results hidden">
+        <div class="numbers current">
+          <span id="curAtt" class="attacker">0</span>
+          <span id="curDef" class="defender">0</span>
+        </div>
+
+        <p class="mpo-label">Most probable outcome</p>
+        <div class="numbers mpo">
+          <span id="mpoAtt" class="attacker">0</span>
+          <span id="mpoDef" class="defender">0</span>
+        </div>
+
+        <div class="numbers win">
+          <span id="winAtt" class="attacker">0%</span>
+          <span id="winDef" class="defender">0%</span>
+        </div>
+
+        <p id="riskIndex" class="risk"></p>
+      </section>
+
+      <!-- SIM COUNT -->
+      <div class="sim-box">
+        <input id="simulations" type="number" min="100" step="100" value="10000">
+      </div>
+    </div>
+  </div>
+
+  <footer class="toolbar-footer center"></footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js" defer></script>
+</body>
+</html>
